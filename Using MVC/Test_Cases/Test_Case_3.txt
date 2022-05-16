@@ -1,0 +1,43 @@
+Test Case for SKU "D" 
+if product quantity "D" in cart is 10
+if product quantity "A" in cart is 6
+Rule in DB: 5 if purchsed with "A" 
+
+Path : \Using MVC\source\core\modules\Checkout\views\index.php - here an AJAX call is made to the CheckoutController function to get special price for SKU according to quantity in the cart
+
+product_quantity = 10
+
+In CheckoutController.php
+
+line #15 will return the product record from DB
+
+line #18 will decode the json array which contain offer details or rules
+
+line #21 will compare if cart contains the SKU which is mentioned in rule in DB
+
+when condition satisfies at line #21 cart_sku(A) == rule sku in db(A)
+
+line #22 sku_quantity = cart quantity of compare_sku
+sku_quantity = 6
+
+line #23
+offer_price = 5
+
+
+come out of foreachloop  line#28
+
+line #30 condition not satisfied
+
+jump to else line #32
+
+line#33
+quantity = 10-6
+quantity=4
+
+line #34
+special price = 6*5 + 4*15
+special price 90
+
+
+line #64
+returns special price as 90

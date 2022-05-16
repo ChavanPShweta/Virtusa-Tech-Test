@@ -1,0 +1,52 @@
+Test Case for SKU "A" if product quantity in cart is 5
+
+
+Path : \Using MVC\source\core\modules\Checkout\views\index.php - here an AJAX call is made to the CheckoutController function to get special price for SKU according to quantity in the cart
+
+product_quantity = 5
+
+In CheckoutController.php
+
+line #15 will return the product record from DB
+
+line #18 will decode the json array which contain offer details or rules
+
+line #21 and #29 conditions will not be satisfies
+
+It will go in else block line #36
+
+line #40 has a foreach loop which will check if there is rule present for respective SKU
+
+will jump to else line #43
+
+while loop 1
+x=0
+line #46 condition not satisfied
+jump to else line #48
+offer_price = 0+130
+offer_price = 130
+product_quantity = 5-3
+product_quantity= 2
+
+
+while loop 2
+x=0
+line #46 condition satisfies 2<3
+x=1
+comes out of while loop
+
+comes out of foreach loop line #54
+
+line #55
+normal_price = 2*unit_price
+	     = 2*50
+normal_price = 100
+
+
+line #56
+special_price = 130+100
+special_price = 230
+
+
+line #64 returns special_price 230
+		
